@@ -1,0 +1,12 @@
+{% extends "layout.html" %} {% block title %} | Register {% endblock %} {% block
+style %} <link rel="stylesheet" href="/static/regsiter.css" /> {% endblock %} {%
+block main %}
+<form action="/register" method="post" class="register-form">
+  <h2>Register Now</h2>
+  <input type="email" name="email" placeholder="Email" />
+  <input type="text" name="username" placeholder="Username" />
+  <input type="password" name="password" placeholder="Password" />
+  <input type="password" name="confirm" placeholder="Confirm password" />
+  <button type="submit">Register</button>
+</form>
+{% endblock %}

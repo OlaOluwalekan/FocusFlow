@@ -1,0 +1,50 @@
+.hero {
+  background-color: var(--primary);
+  margin: 10px 0;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--light);
+  text-align: center;
+  border-radius: 10px;
+}
+
+.hero > h1 {
+  font-size: 45px;
+  font-weight: 900;
+  width: 90%;
+}
+
+.hero > h1 > span > span {
+  color: var(--primary);
+  -webkit-text-stroke: 2px var(--light);
+}
+
+.hero > h2 {
+  margin: 10px 0;
+  width: 90%;
+}
+
+.hero > article {
+  margin-top: 20px;
+}
+
+.hero > article > a {
+  display: inline-block;
+  width: 150px;
+  padding: 10px 20px;
+  border: 1px solid var(--light);
+  margin: 0 5px;
+  font-weight: 600;
+}
+
+.hero > article > a:first-of-type {
+  color: var(--light);
+}
+
+.hero > article > a:last-of-type {
+  background-color: var(--light);
+  color: var(--primary);
+}
