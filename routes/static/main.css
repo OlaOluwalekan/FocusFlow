@@ -52,8 +52,41 @@ nav > ul > li > a {
   color: var(--light);
 }
 
+nav > ul > li.logout {
+  background-color: red;
+  padding: 5px 15px;
+  border-radius: 3px;
+}
+
 .main-center {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.alert {
+  width: fit-content;
+  padding: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: white;
+}
+
+.fe-alert {
+  width: fit-content;
+  padding: 10px;
+  display: none;
+}
+
+.alert-error {
+  background-color: red;
+}
+
+.alert > span {
+  color: yellow;
+}
+
+.alert-success {
+  background-color: green;
 }

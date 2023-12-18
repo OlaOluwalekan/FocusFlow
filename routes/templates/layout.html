@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FocusFlow {% block title%} {% endblock %}</title>
+
+    <link rel="stylesheet" href="/static/main.css" />
+    <script
+      src="https://kit.fontawesome.com/2920449c57.js"
+      crossorigin="anonymous"
+    ></script>
+    {% block style %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="header-center">
+        <a href="/" class="link logo">
+          <h1>Focus<span>Flow</span></h1>
+        </a>
+        <nav>
+          <ul>
+            {% if current_user.is_authenticated %} {% if request.endpoint ==
+            'dashboard' %}
+            <li class="logout"><a href="/logout" class="link">Logout</a></li>
+            {% else %}
+            <li><a href="/dashboard" class="link">Dashboard</a></li>
+            {% endif %} {% else %}
+            <li><a href="/register" class="link">Register</a></li>
+            <li><a href="/login" class="link">Login</a></li>
+            {% endif %}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="main-center">
+        {% block main %} {% endblock %} {% with messages =
+        get_flashed_messages(with_categories=true) %} {% if messages %} {% for
+        category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
+        <div class="fe-alert alert">message</div>
+      </div>
+    </main>
+
+    <script src="/static/js/main.js" type="module"></script>
+    {% block script %} {% endblock %}
+  </body>
+</html>

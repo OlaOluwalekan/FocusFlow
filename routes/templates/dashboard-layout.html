@@ -1,0 +1,22 @@
+{% extends "layout.html" %} {% block title %} | Dashboard {% endblock title %}
+{% block style %}
+<link rel="stylesheet" href="/static/dashboard.css" />
+{% endblock style %} {% block main %}
+<main class="dashboard">
+  <nav class="dashboard-nav">
+    <a href="/dashboard?tab=home" class="link">
+      <span><i class="fa-solid fa-house"></i></span>Home
+    </a>
+    <a href="/dashboard?tab=tasks" class="link">
+      <span><i class="fa-solid fa-list-check"></i></span>Your Tasks
+    </a>
+    <a href="/dashboard?tab=categories" class="link">
+      <span><i class="fa-solid fa-object-group"></i></span>Categories
+    </a>
+    <a href="/dashboard?tab=settings" class="link">
+      <span><i class="fa-solid fa-gear"></i></span>Settings
+    </a>
+  </nav>
+  {% block dashboard %} {% endblock dashboard %}
+</main>
+{% endblock main %}

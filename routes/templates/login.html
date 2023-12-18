@@ -1,0 +1,29 @@
+{% extends "layout.html" %} {% block title %} | Login {% endblock %} {% block
+style %} <link rel="stylesheet" href="/static/login.css" /> {% endblock %} {%
+block main %}
+<form action="/login" method="post" class="login-form">
+  <h2>Login</h2>
+  <input
+    type="text"
+    name="username"
+    placeholder="Username"
+    id="username"
+    autocomplete="off"
+  />
+  <input
+    type="password"
+    name="password"
+    placeholder="Password"
+    id="password"
+    autocomplete="off"
+  />
+  <article>
+    <input type="checkbox" name="show_pass" id="show_pass" />
+    <label for="show_pass" id="show_pass_label">Show Password</label>
+  </article>
+  <button type="submit" id="register_btn">Login</button>
+  <p>Not registered? <a href="/register">Register Here</a></p>
+</form>
+{% endblock %} {% block script %}
+<script src="/static/js/login.js" type="module"></script>
+{% endblock %}

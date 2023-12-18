@@ -1,0 +1,24 @@
+{% extends "layout.html" %} {% block title %} | Register {% endblock %} {% block
+style %} <link rel="stylesheet" href="/static/regsiter.css" /> {% endblock %} {%
+block main %}
+<form action="/register" method="post" class="register-form">
+  <h2>Register Now</h2>
+  <input type="email" name="email" placeholder="Email" id="email" />
+  <input type="text" name="username" placeholder="Username" id="username" />
+  <input type="password" name="password" placeholder="Password" id="password" />
+  <input
+    type="password"
+    name="confirm"
+    placeholder="Confirm password"
+    id="confirm"
+  />
+  <article>
+    <input type="checkbox" name="show_pass" id="show_pass" />
+    <label for="show_pass" id="show_pass_label">Show Password</label>
+  </article>
+  <button type="submit" id="register_btn">Register</button>
+  <p>Already have an account? <a href="/login">Login Here</a></p>
+</form>
+{% endblock %} {% block script %}
+<script src="/static/js/register.js" type="module"></script>
+{% endblock %}

@@ -1,3 +1,5 @@
 focus_flow_venv/
 
 routes/__pycache__/
+
+.env

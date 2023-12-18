@@ -1,0 +1,53 @@
+.dashboard {
+  background-color: aliceblue;
+  margin-top: 20px;
+}
+
+.dashboard > nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--primary);
+  color: var(--light);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.dashboard > nav > a {
+  /* line-height: 35px; */
+  color: var(--light);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.dashboard > nav > a:hover {
+  background-color: var(--light);
+  color: var(--primary);
+}
+
+@media screen and (min-width: 500px) {
+  .dashboard {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .dashboard > nav {
+    position: unset;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .dashboard > nav > a {
+    text-align: left;
+    padding-left: 15px;
+    flex-direction: row;
+  }
+
+  .dashboard > nav > a > span {
+    margin-right: 15px;
+  }
+}
