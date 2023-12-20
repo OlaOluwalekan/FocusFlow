@@ -10,6 +10,23 @@
 :root {
   --primary: blue;
   --light: white;
+  --accent: #04d6b3;
+  --shadow: #221e1e;
+  --error: #fd2121;
+  --success: #0d7c0d;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--accent);
 }
 
 .link {
@@ -53,7 +70,7 @@ nav > ul > li > a {
 }
 
 nav > ul > li.logout {
-  background-color: red;
+  background-color: var(--error);
   padding: 5px 15px;
   border-radius: 3px;
 }
@@ -70,7 +87,7 @@ nav > ul > li.logout {
   position: absolute;
   bottom: 20px;
   left: 20px;
-  color: white;
+  color: var(--light);
 }
 
 .fe-alert {
@@ -80,7 +97,7 @@ nav > ul > li.logout {
 }
 
 .alert-error {
-  background-color: red;
+  background-color: var(--error);
 }
 
 .alert > span {
@@ -88,5 +105,5 @@ nav > ul > li.logout {
 }
 
 .alert-success {
-  background-color: green;
+  background-color: var(--success);
 }

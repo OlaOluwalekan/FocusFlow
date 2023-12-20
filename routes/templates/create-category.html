@@ -1,0 +1,29 @@
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link rel="stylesheet" href="../static/create_category.css" /> {% endblock
+inner_style %} {% block dashboard %}
+<section class="create-category">
+  <h1>Create Category</h1>
+  <form
+    action="/dashboard/category?action=create"
+    class="create-category-form"
+    method="post"
+  >
+    <select name="category" id="category" autofocus>
+      <option selected value="" disabled>Select a Category</option>
+      <option value="Office">Office</option>
+      <option value="Learning">Learning</option>
+      <option value="Health">Health</option>
+      <option value="Personal">Personal</option>
+      <option value="Work">Work</option>
+      <option value="Important">Important</option>
+      <option value="Urgent">Urgent</option>
+      <option value="Custom">Custom</option>
+    </select>
+    <input type="text" name="custom" placeholder="Category Name" id="other" />
+    <input type="color" name="color" id="color" list="color" />
+    <button type="submit">{{ action }}</button>
+  </form>
+</section>
+{% endblock dashboard %} {% block inner_script %}
+<script src="../static/js/create-category.js" type="module"></script>
+{% endblock inner_script %}

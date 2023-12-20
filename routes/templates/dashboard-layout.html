@@ -1,7 +1,8 @@
 {% extends "layout.html" %} {% block title %} | Dashboard {% endblock title %}
 {% block style %}
 <link rel="stylesheet" href="/static/dashboard.css" />
-{% endblock style %} {% block main %}
+{% block inner_style %} {% endblock inner_style %} {% endblock style %} {% block
+main %}
 <main class="dashboard">
   <nav class="dashboard-nav">
     <a href="/dashboard?tab=home" class="link">
@@ -18,5 +19,27 @@
     </a>
   </nav>
   {% block dashboard %} {% endblock dashboard %}
+  <section class="add-fab">
+    <article class="fab-btn">
+      <span class="fab-btn-span1">
+        <i class="fa-solid fa-plus"></i>
+      </span>
+      <span class="fab-btn-span2">
+        <i class="fa-solid fa-times"></i>
+      </span>
+    </article>
+    <article class="fab-menu">
+      {% if request.endpoint != 'create_task' %}
+      <a href="/dashboard/task?action=create" class="link">Add a new task</a>
+      {% endif %} {% if request.endpoint != 'create_category' %}
+      <a href="/dashboard/category?action=create" class="link"
+        >Add a new category</a
+      >
+      {% endif %}
+    </article>
+  </section>
 </main>
-{% endblock main %}
+{% endblock main %} {% block script %} {% block inner_script %} {% endblock
+inner_script %}
+<script src="/static/js/dashboard.js" type="module"></script>
+{% endblock script %}

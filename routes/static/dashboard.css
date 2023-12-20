@@ -1,6 +1,6 @@
 .dashboard {
-  background-color: aliceblue;
   margin-top: 20px;
+  position: relative;
 }
 
 .dashboard > nav {
@@ -12,6 +12,7 @@
   color: var(--light);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  z-index: 20;
 }
 
 .dashboard > nav > a {
@@ -28,10 +29,69 @@
   color: var(--primary);
 }
 
-@media screen and (min-width: 500px) {
+.dashboard > .add-fab {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+}
+
+.dashboard > .add-fab > .fab-btn {
+  width: 40px;
+  aspect-ratio: 1;
+  background-color: var(--primary);
+  color: var(--light);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 25px;
+  box-shadow: 3px 3px 5px var(--shadow);
+}
+
+.dashboard > .add-fab > .fab-btn > .fab-btn-span2 {
+  display: none;
+}
+
+.dashboard > .add-fab > .fab-btn > .fab-btn-span2.show {
+  display: flex;
+}
+
+.dashboard > .add-fab > .fab-btn > .fab-btn-span1.hide {
+  display: none;
+}
+
+.dashboard > .add-fab > article {
+  position: absolute;
+  width: 180px;
+  bottom: 45px;
+  right: 0;
+  background-color: var(--primary);
+  display: none;
+  flex-direction: column;
+  box-shadow: 1px 1px 7px var(--shadow);
+}
+
+.dashboard > .add-fab > .fab-menu.show {
+  display: flex;
+}
+
+.dashboard > .add-fab > article > a {
+  display: block;
+  line-height: 35px;
+  padding: 0 10px;
+  color: var(--light);
+}
+
+@media screen and (min-width: 600px) {
   .dashboard {
     display: grid;
     grid-template-columns: 1fr 4fr;
+    gap: 20px;
   }
 
   .dashboard > nav {
@@ -49,5 +109,10 @@
 
   .dashboard > nav > a > span {
     margin-right: 15px;
+  }
+
+  .dashboard > .add-fab {
+    right: 50px;
+    bottom: 20px;
   }
 }

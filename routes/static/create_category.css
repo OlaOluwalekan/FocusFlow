@@ -1,0 +1,60 @@
+.create-category-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 600px;
+  background-color: var(--primary);
+  margin: 30px auto 0 auto;
+  padding: 15px 10px;
+  border-radius: 10px;
+}
+
+.create-category-form > select {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: none;
+}
+
+.create-category-form > select > option {
+  color: var(--primary);
+}
+.create-category-form > select:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+.create-category-form > input[type='text'] {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  display: none;
+}
+
+.create-category-form > #other.show {
+  display: block;
+}
+
+.create-category-form > input[type='text']:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+.create-category-form > input[type='color'] {
+  margin: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  border: none;
+}
+
+.create-category-form > button {
+  padding: 10px 0;
+  margin: 10px 0;
+  color: var(--primary);
+  background-color: var(--light);
+  cursor: pointer;
+  border: none;
+  font-weight: 900;
+  border-radius: 5px;
+}

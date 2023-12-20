@@ -1,5 +1,50 @@
-{% extends "dashboard-layout.html" %} {% block dashboard %}
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link rel="stylesheet" href="../static/tasks.css" /> {% endblock inner_style %}
+{% block dashboard %}
 <section class="dashboard">
   <h1>Your List of Tasks</h1>
+
+  <!-- LIST FOR ALL TASKS FOR THIS USER -->
+  <section class="task-list">
+    <!-- NO TASK CREATED YET -->
+    {% if not tasks %}
+    <p>You don't have a task here. Click (+) to create</p>
+    <!-- TASK EXIST -->
+    {% else %}
+    <!-- LOOP THROUGH EXISTING TASKS -->
+    {% for task in tasks %}
+    <div class="task-container">
+      <article></article>
+      <section>
+        <a href="#" class="link">{{ task["task_name"] }}</a>
+        <article>
+          <!-- CHECK IF TASK IS IN ANY CATEGORY -->
+          {% if task["task_categories"] %}
+          <!-- THEN LOOP THROUGH THE CATEGORIES -->
+          {% for category in task["task_categories"] %}
+          <a
+            href="/dashboard/category/{{ category.category_name }}"
+            class="link"
+            >{{ category["category_name"] }}</a
+          >
+          {% endfor %}
+          <!-- TASK NOT IN ANY CATEGORY -->
+          {% else %} Not added to a category {% endif %}
+        </article>
+        <p>
+          Created On:
+          <span>{{ task["created_at"].strftime("%b %d, %Y") }}</span> At:
+          <span>{{ task["created_at"].strftime("%I %M, %p") }}</span>
+        </p>
+        <aside>
+          <span><i class="fa-solid fa-trash"></i></span>
+          <a href="/dashboard/task?action=edit&id={{ task.task_id }}"
+            ><i class="fa-solid fa-edit"></i
+          ></a>
+        </aside>
+      </section>
+    </div>
+    {% endfor %} {% endif %}
+  </section>
 </section>
 {% endblock dashboard %}

@@ -1,0 +1,85 @@
+.create-task > h2 {
+  color: var(--primary);
+}
+
+.create-task-form {
+  background-color: var(--primary);
+  margin: 20px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  padding: 15px 10px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.create-task-form > input[type='text'] {
+  padding: 10px;
+  font-weight: 900;
+  border: none;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+
+.create-task-form > input[type='text']:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+.create-task-form > textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 0;
+}
+
+.create-task-form > textarea:focus {
+  outline: none;
+  border: 2px solid var(--accent);
+}
+
+.create-task-form > p {
+  color: var(--light);
+  margin: 10px 0;
+  text-align: center;
+}
+
+.create-task-form > section > p {
+  text-align: center;
+  color: var(--light);
+  margin: 10px 0;
+}
+
+.create-task-category-list {
+  display: flex;
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.create-task-category-list > article > input {
+  display: none;
+}
+
+.create-task-category-list > article > label {
+  background-color: var(--light);
+  color: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.create-task-category-list > article > input:checked ~ label {
+  background-color: var(--accent);
+}
+
+.create-task-form > button {
+  padding: 10px 0;
+  background-color: var(--light);
+  border-radius: 5px;
+  color: var(--primary);
+  border: none;
+  font-weight: 900;
+  cursor: pointer;
+  margin: 10px 0;
+}

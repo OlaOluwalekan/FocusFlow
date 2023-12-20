@@ -5,6 +5,9 @@ from routes.login import login_route
 from routes.register import register_route
 from routes.dashboard import dashboard_route
 from routes.logout import logout_route
+from routes.create_task import create_task_route
+from routes.create_category import create_category_route
+from routes.category import category_route
 from flask_login import login_required
 
 app.debug = True
@@ -13,22 +16,38 @@ app.debug = True
 def index():
   return home_route()
 
-@app.route("/login", methods=["GET", "POST"])
-def login():
-  return login_route()
+@app.route("/dashboard/category/<category>")
+@login_required
+def category(category):
+  return category_route(category_name=category)
 
-@app.route("/register", methods=["GET", "POST"])
-def register():
-  return register_route()
+@app.route('/dashboard/category', methods=["GET", "POST"])
+@login_required
+def create_category():
+  return create_category_route()
+
+@app.route('/dashboard/task', methods=["GET", "POST"])
+@login_required
+def create_task():
+  return create_task_route()
 
 @app.route('/dashboard')
 @login_required
 def dashboard():
   return dashboard_route()
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+  return login_route()
+
 @app.route('/logout')
+@login_required
 def logout():
   return logout_route()
+
+@app.route("/register", methods=["GET", "POST"])
+def register():
+  return register_route()
 
 
 if __name__ == "__main__":

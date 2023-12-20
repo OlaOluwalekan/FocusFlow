@@ -1,0 +1,48 @@
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link rel="stylesheet" href="../static/create-task.css" /> {% endblock
+inner_style %} {% block dashboard %}
+<section class="create-task">
+  <h2>
+    {% if action == 'Add Task' %} Create a New Task {% else %} Update Task {%
+    endif %}
+  </h2>
+  <form action="/dashboard/task" class="create-task-form" method="post">
+    <input
+      type="text"
+      name="title"
+      placeholder="Task Name/Title"
+      autofocus
+      autocomplete="off"
+      id="title"
+    />
+    <textarea
+      name="description"
+      id="description"
+      cols="30"
+      rows="10"
+      placeholder="Task Description"
+    ></textarea>
+    <p>Select task Category</p>
+    <section class="create-task-category-list">
+      {% if not categories %}
+      <p>No categories to show</p>
+      {% else %} {% for category in categories %}
+      <article>
+        <input
+          type="checkbox"
+          name="category"
+          id="{{ category.category_name }}"
+          value="{{ category.category_id }}"
+        />
+        <label for="{{ category.category_name }}"
+          >{{ category["category_name"] }}</label
+        >
+      </article>
+      {% endfor %} {% endif %}
+    </section>
+    <button type="submit">{{ action }}</button>
+  </form>
+</section>
+{% endblock dashboard %} {% block inner_script %}
+<script src="../static/js/create-task.js" type="module"></script>
+{% endblock inner_script %}

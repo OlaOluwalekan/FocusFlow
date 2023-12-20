@@ -1,5 +1,28 @@
-{% extends "dashboard-layout.html" %} {% block dashboard %}
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link rel="stylesheet" href="../static/categories.css" /> {% endblock
+inner_style %} {% block dashboard %}
 <section class="dashboard">
   <h1>Categories</h1>
+  <section class="category-list">
+    {% for category in categories %}
+    <div>
+      <article
+        style="background-color: {{ category.category_color }}"
+      ></article>
+      <section>
+        <a href="/dashboard/category/{{ category.category_name }}" class="link"
+          >{{ category["category_name"] }}</a
+        >
+        <p>
+          Created On:
+          <span>{{ category["created_at"].strftime("%b %d, %Y") }}</span> At:
+          <span>{{ category["created_at"].strftime("%I %M, %p") }}</span>
+        </p>
+      </section>
+    </div>
+    {% endfor %}
+  </section>
 </section>
-{% endblock dashboard %}
+{% endblock dashboard %} {% block inner_script %}
+<script src="../static/js/categories.js" type="module"></script>
+{% endblock inner_script %}

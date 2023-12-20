@@ -1,0 +1,36 @@
+.category-list {
+  margin-top: 20px;
+}
+
+.category-list > div {
+  box-shadow: 3px 3px 7px var(--shadow);
+  display: flex;
+  margin: 10px 0;
+}
+
+.category-list > div > article {
+  width: 20px;
+  height: inherit;
+}
+
+.category-list > div > section {
+  padding: 10px;
+}
+
+.category-list > div > section > a {
+  color: var(--primary);
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  display: block;
+}
+
+.category-list > div > section > P {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.category-list > div > section > P > span {
+  color: var(--primary);
+  margin: 0 5px;
+}
