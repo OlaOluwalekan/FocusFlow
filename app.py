@@ -7,7 +7,10 @@ from routes.dashboard import dashboard_route
 from routes.logout import logout_route
 from routes.create_task import create_task_route
 from routes.create_category import create_category_route
+from routes.errors import not_found_route
 from routes.category import category_route
+from routes.task import task_route
+from routes.delete_sth import delete_task_route
 from flask_login import login_required
 
 app.debug = True
@@ -36,6 +39,11 @@ def create_task():
 def dashboard():
   return dashboard_route()
 
+@app.route('/dashboard/tasks/delete', methods=["POST"])
+@login_required
+def delete_task():
+  return delete_task_route()
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
   return login_route()
@@ -48,6 +56,16 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 def register():
   return register_route()
+
+@app.route("/dashboard/task/<task>")
+@login_required
+def task(task):
+  return task_route(task_name=task)
+
+@app.errorhandler(404)
+def page_not_found(e):
+  return not_found_route()
+
 
 
 if __name__ == "__main__":

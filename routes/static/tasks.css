@@ -56,3 +56,58 @@
   margin-left: 10px;
   color: var(--success);
 }
+
+.tasks-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 60;
+  background-color: #00000067;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks-overlay > .delete-dialog {
+  width: 90%;
+  max-width: 400px;
+  background-color: var(--light);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 5px var(--shadow);
+  border-radius: 7px;
+}
+
+.tasks-overlay > .delete-dialog > p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.tasks-overlay > .delete-dialog > p > span {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+.tasks-overlay > .delete-dialog > article {
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tasks-overlay > .delete-dialog > article > button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tasks-overlay > .delete-dialog > article > button:last-of-type {
+  background-color: var(--error);
+  color: var(--light);
+}

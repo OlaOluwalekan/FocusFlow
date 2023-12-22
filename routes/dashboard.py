@@ -7,7 +7,7 @@ from routes.settings import settings_route
 
 def dashboard_route():
   tab = request.args.get('tab', 'default-tab')
-  print(tab)
+  
   cursor = db.cursor()
   cursor.execute("SELECT * FROM users WHERE id = %s", (current_user.id,))
   dbUser = cursor.fetchone()

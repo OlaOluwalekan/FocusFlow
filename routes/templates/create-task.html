@@ -7,6 +7,8 @@ inner_style %} {% block dashboard %}
     endif %}
   </h2>
   <form action="/dashboard/task" class="create-task-form" method="post">
+    <input type="hidden" name="action" value="{{ action }}" />
+    <input type="hidden" value="{{ request.args.get('id') }}" name="id" />
     <input
       type="text"
       name="title"
@@ -14,6 +16,7 @@ inner_style %} {% block dashboard %}
       autofocus
       autocomplete="off"
       id="title"
+      value="{% if action == 'Update Task' %}{{ task_info.task_name }}{% endif %}"
     />
     <textarea
       name="description"
@@ -21,19 +24,19 @@ inner_style %} {% block dashboard %}
       cols="30"
       rows="10"
       placeholder="Task Description"
-    ></textarea>
+    >
+{% if action == 'Update Task' %}{{ task_info.task_description }}{% endif %}</textarea
+    >
     <p>Select task Category</p>
     <section class="create-task-category-list">
       {% if not categories %}
       <p>No categories to show</p>
       {% else %} {% for category in categories %}
       <article>
-        <input
-          type="checkbox"
-          name="category"
-          id="{{ category.category_name }}"
-          value="{{ category.category_id }}"
-        />
+        <input type="checkbox" name="category" id="{{ category.category_name }}"
+        value="{{ category.category_id }}" {% if action == 'Update Task' and
+        category['category_id'] in task_info['task_categories'] %}checked{%
+        endif %} />
         <label for="{{ category.category_name }}"
           >{{ category["category_name"] }}</label
         >

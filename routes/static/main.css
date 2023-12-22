@@ -84,10 +84,11 @@ nav > ul > li.logout {
 .alert {
   width: fit-content;
   padding: 10px;
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: 50px;
   left: 20px;
   color: var(--light);
+  z-index: 50;
 }
 
 .fe-alert {

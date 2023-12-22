@@ -4,6 +4,11 @@ style %} {% block main %}
 <form action="/login" method="post" class="login-form">
   <h2>Login</h2>
   <input
+    type="hidden"
+    value="{% if next_url %}{{ next_url }}{% else %} {% endif %}"
+    name="next"
+  />
+  <input
     type="text"
     name="username"
     placeholder="Username"
