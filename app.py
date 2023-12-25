@@ -9,7 +9,7 @@ from routes.create_task import create_task_route
 from routes.create_category import create_category_route
 from routes.errors import not_found_route
 from routes.category import category_route
-from routes.task import task_route
+from routes.task_details import task_details_route, toggle_task_completion_route
 from routes.delete_sth import delete_task_route
 from flask_login import login_required
 
@@ -59,8 +59,14 @@ def register():
 
 @app.route("/dashboard/task/<task>")
 @login_required
-def task(task):
-  return task_route(task_name=task)
+def task_details(task):
+  return task_details_route(task_name=task)
+
+@app.route("/dashboard/task/<task>/update_completed", methods=["POST"])
+@login_required
+def toggle_task_completion(task):
+  return toggle_task_completion_route(task_name=task)
+
 
 @app.errorhandler(404)
 def page_not_found(e):

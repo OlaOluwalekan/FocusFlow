@@ -1,0 +1,52 @@
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='task_details.css') }}"
+/>
+{% endblock inner_style %} {% block dashboard %}
+<section class="task-details-container">
+  <input
+    type="hidden"
+    name="task_id"
+    value="{{ task_info.task_id }}"
+    id="task_id"
+  />
+  <h2>{{ task_info["task_name"] }}</h2>
+  <article>
+    <p>
+      created on
+      <span>{{ task_info["created_at"].strftime("%b %d, %Y") }}</span> at
+      <span>{{ task_info["created_at"].strftime("%I:%M %p") }}</span>
+    </p>
+    <article>
+      <input
+        type="checkbox"
+        id="completed"
+        {%
+        if
+        task_info.is_completed
+        %}checked{%
+        endif
+        %}
+      />
+      <label for="completed"
+        >{% if task_info["is_completed"] %}Completed{% else %}Mark as
+        completed{% endif %}</label
+      >
+    </article>
+  </article>
+  <aside>
+    {% for category in task_info["task_categories"] %}
+    <a href="/dashboard/category/{{ category.category_name }}" class="link"
+      >{{ category["category_name"] }}</a
+    >
+    {% endfor %}
+  </aside>
+  <p>{{ task_info["task_description"] }}</p>
+</section>
+{% endblock dashboard %} {% block inner_script %}
+<script
+  src="{{ url_for('static', filename='js/task-details.js') }}"
+  type="module"
+></script>
+{% endblock inner_script %}

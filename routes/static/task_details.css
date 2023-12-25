@@ -1,0 +1,60 @@
+.task-details-container {
+  /* background-color: aliceblue; */
+  max-width: 600px;
+}
+
+.task-details-container > h2 {
+  color: var(--primary);
+  margin-bottom: 20px;
+}
+
+.task-details-container > article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.task-details-container > article > p {
+  font-size: 14px;
+}
+
+.task-details-container > article > p > span {
+  color: var(--error);
+}
+
+.task-details-container > article > article {
+  accent-color: var(--primary);
+  font-size: 14px;
+}
+
+.task-details-container > article > article > label {
+  font-weight: 900;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.task-details-container > article > article > input {
+  cursor: pointer;
+}
+
+.task-details-container > aside {
+  display: flex;
+  margin: 5px 0;
+  gap: 3px;
+}
+
+.task-details-container > aside > a {
+  color: var(--primary);
+  padding: 3px 5px;
+  display: inline-block;
+  border: 1px solid var(--primary);
+}
+
+.task-details-container > p {
+  background-color: var(--alice);
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  min-height: 200px;
+}
