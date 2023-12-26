@@ -1,16 +1,14 @@
-from flask import render_template, request
+from flask import render_template, request, abort
 from routes import db
 from flask_login import current_user
 from routes.tasks import tasks_route
 from routes.categories import categories_route
 from routes.settings import settings_route
+from routes.dashboard_home import dashboard_home_route
 
 def dashboard_route():
   tab = request.args.get('tab', 'default-tab')
-  
-  cursor = db.cursor()
-  cursor.execute("SELECT * FROM users WHERE id = %s", (current_user.id,))
-  dbUser = cursor.fetchone()
+  # print(tab)
 
   if tab == "tasks":
     return tasks_route()
@@ -20,5 +18,8 @@ def dashboard_route():
   
   if tab == "categories":
     return settings_route()
-
-  return render_template('dashboard.html', user=dbUser)
+  
+  if tab == 'home' or tab == 'default-tab':
+    return dashboard_home_route()
+  
+  return abort(404)

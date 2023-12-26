@@ -12,8 +12,11 @@ from routes.category import category_route
 from routes.task_details import task_details_route, toggle_task_completion_route
 from routes.delete_sth import delete_task_route
 from flask_login import login_required
+from routes.filters import time_ago_filter
 
 app.debug = True
+
+app.jinja_env.filters['time_ago'] = time_ago_filter
 
 @app.route("/")
 def index():

@@ -1,5 +1,64 @@
-{% extends "dashboard-layout.html" %} {% block dashboard %}
-<section class="dashboard">
-  <h1>Welcome {{ user["username"].capitalize() }}</h1>
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='dashboard_home.css') }}"
+/>
+{% endblock inner_style %} {% block dashboard %}
+<section class="dashboard-home">
+  <h1>{{ user["username"].capitalize() }}'s Board</h1>
+  <div class="snapshot">
+    <article class="snapshot-1">
+      <article>
+        <span><i class="fa-solid fa-spinner"></i></span>
+        <h5>Tasks in Progress</h5>
+      </article>
+      <article>
+        You have
+        <a href="/dashboard/category/Ongoing?Yhdu=0"
+          >{{ ongoing_tasks | length }} ongoing task(s)</a
+        >
+      </article>
+    </article>
+
+    <article class="snapshot-2">
+      <article>
+        <span><i class="fa-solid fa-sun"></i></span>
+        <h5>Created Today</h5>
+      </article>
+      <article>
+        You have created
+        <a href="/dashboard/category/Today?Yhdu=0"
+          >{{ today_tasks | length }} task(s) today</a
+        >
+      </article>
+    </article>
+
+    <article class="snapshot-3">
+      <article>
+        <span><i class="fa-solid fa-check-double"></i></span>
+        <h5>Completed Tasks</h5>
+      </article>
+      <article>
+        You have
+        <a href="/dashboard/category/Completed?Yhdu=0"
+          >{{ completed_tasks | length }} completed task(s)</a
+        >
+      </article>
+    </article>
+  </div>
+
+  <div class="recent">
+    <h2>Recently Created</h2>
+    <div>
+      {% if recent_tasks %} {% for task in recent_tasks %}
+      <section>
+        <a href="/dashboard/task/{{ task.task_name }}?XQrd={{ task.task_id }}"
+          >{{ task["task_name"] }}</a
+        >
+        <p>Created {{ task["created_at"] | time_ago }}</p>
+      </section>
+      {% endfor %} {% else %} {% endif %}
+    </div>
+  </div>
 </section>
 {% endblock dashboard %}

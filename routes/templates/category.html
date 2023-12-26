@@ -28,9 +28,10 @@
       <h2>{{ category_name }}</h2>
     </div>
     <p>
-      Created On:
+      {% if category_info["created_at"] %} Created On:
       <span>{{ category_info["created_at"].strftime("%b %d, %Y") }}</span> At:
       <span>{{ category_info["created_at"].strftime("%I:%M %p") }}</span>
+      {% endif %}
     </p>
     {% if category_tasks %}
     <article>

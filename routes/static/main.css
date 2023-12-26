@@ -10,6 +10,7 @@
 :root {
   --primary: blue;
   --light: white;
+  --trans_light: #ffffff49;
   --accent: #04d6b3;
   --shadow: #221e1e;
   --error: #fd2121;

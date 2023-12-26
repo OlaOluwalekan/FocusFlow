@@ -1,0 +1,95 @@
+.dashboard-home {
+  margin-bottom: 70px;
+}
+
+.snapshot {
+  display: flex;
+  gap: 20px;
+  flex-flow: wrap;
+  margin: 20px 0;
+}
+
+.snapshot > article {
+  width: 150px;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--light);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.snapshot > .snapshot-1 {
+  background: linear-gradient(180deg, #ffd381, #ff5e00);
+}
+
+.snapshot > .snapshot-2 {
+  background: linear-gradient(180deg, #7a7aff, #0202c5);
+}
+
+.snapshot > .snapshot-3 {
+  background: linear-gradient(180deg, #58f379, #007000);
+}
+
+.snapshot > article > article:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.snapshot > article > article:first-of-type > span {
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  border-radius: 3px;
+  background-color: var(--trans_light);
+}
+
+.snapshot > article > article:last-of-type {
+  font-size: 14px;
+}
+
+.snapshot > article > article:last-of-type > a {
+  color: var(--light);
+}
+
+.recent {
+  margin: 10px 0;
+}
+
+.recent > h2 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.recent > div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.recent > div > section {
+  box-shadow: 3px 3px 7px var(--shadow);
+  padding: 10px;
+}
+
+.recent > div > section > a {
+  text-decoration: none;
+  color: var(--primary);
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.recent > div > section > p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+@media screen and (min-width: 600px) {
+  .recent > div {
+    grid-template-columns: 1fr 1fr;
+  }
+}
