@@ -37,7 +37,9 @@
   </article>
   <aside>
     {% for category in task_info["task_categories"] %}
-    <a href="/dashboard/category/{{ category.category_name }}" class="link"
+    <a
+      href="/dashboard/category/{{ category.category_name }}?Yhdu={{ category.category_id }}"
+      class="link"
       >{{ category["category_name"] }}</a
     >
     {% endfor %}

@@ -42,7 +42,7 @@
           <!-- THEN LOOP THROUGH THE CATEGORIES -->
           {% for category in task["task_categories"] %}
           <a
-            href="/dashboard/category/{{ category.category_name }}"
+            href="/dashboard/category/{{ category.category_name }}?Yhdu={{ category.category_id }}"
             class="link"
             >{{ category["category_name"] }}</a
           >

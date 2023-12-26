@@ -10,14 +10,8 @@ def tasks_route():
   user_tasks = cursor.fetchall()
 
   for user_task in user_tasks:
-    cursor.execute("SELECT c.category_name, c.category_color FROM categories c JOIN task_category tc ON c.category_id = tc.category_id WHERE task_id = %s", (user_task["task_id"],))
+    cursor.execute("SELECT c.category_id, c.category_name, c.category_color FROM categories c JOIN task_category tc ON c.category_id = tc.category_id WHERE task_id = %s", (user_task["task_id"],))
     task_categories = cursor.fetchall()
     user_task["task_categories"] = task_categories
-    # print("*********************************")
-    # print(user_task["task_name"])
-    # print(user_task)
-    # print("*********************************")
-
-  # print(user_tasks)
 
   return render_template('tasks.html', tasks=user_tasks)

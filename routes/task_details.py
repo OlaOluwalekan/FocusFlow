@@ -18,7 +18,7 @@ def task_details_route(task_name):
   if not task_info:
     abort(404)
 
-  cursor.execute("SELECT c.category_name, c.category_color FROM task_category tc JOIN categories c ON tc.category_id = c.category_id WHERE task_id = %s", (task_id,))
+  cursor.execute("SELECT c.category_id, c.category_name, c.category_color FROM task_category tc JOIN categories c ON tc.category_id = c.category_id WHERE task_id = %s", (task_id,))
   task_category = cursor.fetchall()
 
   task_info["task_categories"] = task_category

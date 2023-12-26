@@ -5,7 +5,7 @@ from routes import db
 def delete_task_route():
   user_id = current_user.id
   task_id = request.form.get("delete_id")
-  # print(task_id)
+  print("Referrer is ===", request.referrer)
   cursor = db.cursor()
 
   cursor.execute("DELETE from task_category WHERE task_id = %s", (task_id,))

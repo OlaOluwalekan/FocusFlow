@@ -1,6 +1,84 @@
-{% extends "dashboard-layout.html" %} {% block inner_style %} {% endblock
-inner_style %} {% block dashboard %}
-<section class="dashboard">
-  <h1>{{ category_name }}</h1>
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='category_details.css') }}"
+/>
+{% endblock inner_style %} {% block dashboard %}
+<section class="category-container">
+  <!-- DELETE POPUP -->
+  <div class="tasks-overlay">
+    <form class="delete-dialog" action="/dashboard/tasks/delete" method="post">
+      <p>
+        Are you sure you want to delete <span></span>? This action cannot be
+        reversed.
+      </p>
+      <input type="hidden" name="delete_id" value="" />
+      <article>
+        <button type="button" id="cancel_btn">Cancel</button>
+        <button type="submit">Delete</button>
+      </article>
+    </form>
+  </div>
+
+  <section class="category-head">
+    <div>
+      <article
+        style="background-color: {{ category_info.category_color }};"
+      ></article>
+      <h2>{{ category_name }}</h2>
+    </div>
+    <p>
+      Created On:
+      <span>{{ category_info["created_at"].strftime("%b %d, %Y") }}</span> At:
+      <span>{{ category_info["created_at"].strftime("%I:%M %p") }}</span>
+    </p>
+    {% if category_tasks %}
+    <article>
+      You have <span>{{ category_tasks | length }}</span> item(s) in this
+      Category
+    </article>
+    {% endif %}
+  </section>
+  <section class="category-details">
+    <!-- CHECK IF THERES TASK IN THIS CATEGORY -->
+    <div class="category-tasks-list">
+      {% if category_tasks %}
+      <!-- LOOP THROUGH TASKS -->
+      {% for task in category_tasks %}
+      <div class="task-container" id="{{ task.task_id }}">
+        <article></article>
+        <section>
+          <a
+            href="/dashboard/task/{{ task.task_name }}?XQrd={{ task.task_id }}"
+            class="link"
+            >{{ task["task_name"] }}</a
+          >
+          <p>
+            Created On:
+            <span>{{ task["created_at"].strftime("%b %d, %Y") }}</span> At:
+            <span>{{ task["created_at"].strftime("%I:%M %p") }}</span>
+          </p>
+          <aside>
+            <span class="tasks-delete-task"
+              ><i class="fa-solid fa-trash"></i
+            ></span>
+            <a href="/dashboard/task?action=edit&id={{ task.task_id }}"
+              ><i class="fa-solid fa-edit"></i
+            ></a>
+          </aside>
+        </section>
+      </div>
+      {% endfor %}
+      <!-- IF NO TASK, TELL USER -->
+      {% else %}
+      <p>You have not added any task to this category</p>
+      {% endif %}
+    </div>
+  </section>
 </section>
-{% endblock dashboard %} {% block inner_script %} {% endblock inner_script %}
+{% endblock dashboard %} {% block inner_script %}
+<script
+  type="module"
+  src="{{ url_for('static', filename='js/category-details.js') }}"
+></script>
+{% endblock inner_script %}
