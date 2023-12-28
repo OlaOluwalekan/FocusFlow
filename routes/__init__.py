@@ -7,9 +7,9 @@ from flask_login import LoginManager, UserMixin
 
 app = Flask(__name__)
 
-app.secret_key = "jwduui2l29u94kjsjh3r99ueknd"
-
 load_dotenv()
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 DB_HOST = os.getenv("DB_HOST")
 DB_USER = os.getenv("DB_USER")
