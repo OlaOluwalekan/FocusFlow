@@ -10,9 +10,117 @@ style %}
 
   <h2>Streamline your task, boost your productivity</h2>
 
+  {% if not current_user.is_authenticated %}
   <article>
     <a href="/login" class="link">Login</a>
     <a href="/register" class="link">Get Started</a>
   </article>
+  {% endif %}
+</section>
+
+<section class="flexibility">
+  <h2>Create Tasks with <span>Ease</span> and <span>Flexibility</span></h2>
+  <p>
+    Struggling to keep up with your daily tasks? We've got you covered! With
+    <span>FocusFlow</span>, task management becomes a breeze. Whether you're
+    organizing your work, planning your day, or setting personal goals,
+    <span>FocusFlow</span> offers you the flexibility you need.
+  </p>
+</section>
+
+<section class="features">
+  <h2>Features That Simplify Your Life</h2>
+  <div>
+    <div>
+      <article>
+        <span><i class="fa-solid fa-check-to-slot"></i></span>
+        <h4>Intuitive Interface</h4>
+      </article>
+      <p>
+        Our user-friendly interface ensures a smooth experience from the moment
+        you log in.
+      </p>
+    </div>
+
+    <div>
+      <article>
+        <span><i class="fa-solid fa-pen"></i></span>
+        <h4>Quick Task Creation</h4>
+      </article>
+      <p>
+        Create tasks on the go! Just type, hit enter, and watch your to-do list
+        grow.
+      </p>
+    </div>
+
+    <div>
+      <article>
+        <span><i class="fa-solid fa-layer-group"></i></span>
+        <h4>Organize Effortlessly</h4>
+      </article>
+      <p>
+        Categorize tasks into projects or set due dates. Stay on top of your
+        priorities.
+      </p>
+    </div>
+
+    <div>
+      <article>
+        <span><i class="fa-solid fa-globe"></i></span>
+        <h4>Access Anywhere, Anytime</h4>
+      </article>
+      <p>
+        Whether you're on your computer, tablet, or phone,
+        <span>FocusFlow</span> syncs seamlessly across all your devices.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works">
+  <h2>How it Works</h2>
+  <div>
+    <div>
+      <p><span>1</span></p>
+      <article>
+        <span>
+          <i class="fa-solid fa-plus"></i>
+        </span>
+        <p>
+          <a href="/register">Create your account</a> and get started in seconds
+        </p>
+      </article>
+    </div>
+
+    <div>
+      <p><span>2</span></p>
+      <article>
+        <span>
+          <i class="fa-solid fa-calendar-plus"></i>
+        </span>
+        <p>Simply type your task, press enter, and it's on your to-do list.</p>
+      </article>
+    </div>
+
+    <div>
+      <p><span>3</span></p>
+      <article>
+        <span>
+          <i class="fa-solid fa-object-group"></i>
+        </span>
+        <p>Group tasks into projects or categories for better organization.</p>
+      </article>
+    </div>
+
+    <div>
+      <p><span>4</span></p>
+      <article>
+        <span>
+          <i class="fa-solid fa-bell"></i>
+        </span>
+        <p>Receive timely reminders to ensure you stay on track.</p>
+      </article>
+    </div>
+  </div>
 </section>
 {% endblock %}

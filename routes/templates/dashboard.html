@@ -5,7 +5,11 @@
 />
 {% endblock inner_style %} {% block dashboard %}
 <section class="dashboard-home">
-  <h1>{{ user["username"].capitalize() }}'s Board</h1>
+  <h1>
+    {% if user["first_name"] %} {{ user["first_name"].capitalize() }}'s {% elif
+    user["last_name"] %} {{ user["last_name"].capitalize() }}'s {% else %} {{
+    user["username"].capitalize() }}'s {% endif %} Board
+  </h1>
   <div class="snapshot">
     <article class="snapshot-1">
       <article>
@@ -57,7 +61,9 @@
         >
         <p>Created {{ task["created_at"] | time_ago }}</p>
       </section>
-      {% endfor %} {% else %} {% endif %}
+      {% endfor %} {% else %}
+      <p>No recently created tasks</p>
+      {% endif %}
     </div>
   </div>
 </section>

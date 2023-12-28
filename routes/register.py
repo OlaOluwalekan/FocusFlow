@@ -1,6 +1,6 @@
 from flask import render_template, flash, request, redirect
+from flask_login import current_user
 from routes import db
-import bcrypt
 import hashlib
 
 def register_route():
@@ -49,13 +49,14 @@ def register_route():
       return render_template("register.html")
     
     # REGISTER USER
-    # hashed_password = bcrypt.hashpw(password.encode('utf-'), bcrypt.gensalt())
     hashed_password = hashlib.sha256(password.encode()).hexdigest()
-    print("pass =", hashed_password)
     cursor.execute("INSERT INTO users (username, email, password) VALUES (%s, %s, %s)", (username, email, hashed_password))
     db.commit()
     flash('user ' + username + ' successfully created', 'success')
     
     return redirect("/")
+  
+  if current_user.is_authenticated:
+    return redirect('/dashboard')
 
   return render_template("register.html")

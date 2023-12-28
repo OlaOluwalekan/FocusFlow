@@ -4,7 +4,7 @@ def time_ago_filter(created_at):
   now = datetime.utcnow()
   delta = now - created_at
 
-  print("tme is:", now)
+  # print("tme is:", now)
 
   if delta.days > 0:
     return f"{delta.days} {'day' if delta.days == 1 else 'days'} ago"

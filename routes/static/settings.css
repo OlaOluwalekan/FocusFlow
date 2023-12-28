@@ -1,0 +1,99 @@
+.settings {
+  margin-bottom: 80px;
+}
+
+.personal-details {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.personal-details > article {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.personal-details > article > input {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.personal-details > article > input:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+}
+
+.personal-details > button {
+  padding: 10px 30px;
+  background-color: var(--primary);
+  color: var(--light);
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+}
+
+.personal-details > button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: gray;
+}
+
+.email-username {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.email-username > article {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.email-username > article > input {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #c7c7c7;
+  border: none;
+  font-weight: 900;
+  cursor: not-allowed;
+}
+
+.email-username > article > input:focus {
+  outline: none;
+}
+
+.password-change {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.password-change > article {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.password-change > article > input {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.password-change > article > input:focus {
+  outline: none;
+  border: 2px solid var(--primary);
+}
+
+.password-change > button {
+  padding: 10px 30px;
+  background-color: var(--primary);
+  color: var(--light);
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+}
+
+.password-change > button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background-color: gray;
+}

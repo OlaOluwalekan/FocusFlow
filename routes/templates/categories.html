@@ -4,7 +4,7 @@ inner_style %} {% block dashboard %}
 <section class="dashboard">
   <h1>Categories</h1>
   <section class="category-list">
-    {% for category in categories %}
+    {% if categories %} {% for category in categories %}
     <div>
       <article
         style="background-color: {{ category.category_color }}"
@@ -22,7 +22,9 @@ inner_style %} {% block dashboard %}
         </p>
       </section>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <p>No Category created yet</p>
+    {% endif %}
   </section>
 </section>
 {% endblock dashboard %} {% block inner_script %}

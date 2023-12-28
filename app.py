@@ -11,6 +11,7 @@ from routes.errors import not_found_route
 from routes.category import category_route
 from routes.task_details import task_details_route, toggle_task_completion_route
 from routes.delete_sth import delete_task_route
+from routes.settings import password_change_route
 from flask_login import login_required
 from routes.filters import time_ago_filter
 
@@ -37,7 +38,7 @@ def create_category():
 def create_task():
   return create_task_route()
 
-@app.route('/dashboard')
+@app.route('/dashboard', methods=["GET", "POST"])
 @login_required
 def dashboard():
   return dashboard_route()
@@ -56,6 +57,11 @@ def login():
 def logout():
   return logout_route()
 
+@app.route('/password-change', methods=["POST"])
+@login_required
+def password_change():
+  return password_change_route()
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
   return register_route()
@@ -70,9 +76,12 @@ def task_details(task):
 def toggle_task_completion(task):
   return toggle_task_completion_route(task_name=task)
 
-
 @app.errorhandler(404)
 def page_not_found(e):
+  return not_found_route()
+
+@app.errorhandler(405)
+def method_not_allowed(e):
   return not_found_route()
 
 

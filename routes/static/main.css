@@ -110,3 +110,48 @@ nav > ul > li.logout {
 .alert-success {
   background-color: var(--success);
 }
+
+.page-not-found {
+  min-height: 100vh;
+  background: url('https://res.cloudinary.com/dyyoorpns/image/upload/v1703779597/CS50%20project/15648_vbdgho.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-not-found > h1 {
+  font-size: 120px;
+}
+
+.page-not-found > p {
+  font-size: 20px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  line-height: 35px;
+  margin: 10px 0;
+}
+
+.page-not-found > article {
+  margin: 10px 0;
+}
+
+.page-not-found > article > a {
+  display: inline-block;
+  margin: 0 20px;
+  padding: 10px 30px;
+  font-weight: 900;
+  color: var(--primary);
+}
+
+.page-not-found > article > .link1 {
+  background-color: var(--primary);
+  color: var(--light);
+}
+
+.page-not-found > article > .link2 {
+  border: 2px solid var(--primary);
+}

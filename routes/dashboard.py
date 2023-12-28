@@ -16,7 +16,7 @@ def dashboard_route():
   if tab == "categories":
     return categories_route()
   
-  if tab == "categories":
+  if tab == "settings":
     return settings_route()
   
   if tab == 'home' or tab == 'default-tab':

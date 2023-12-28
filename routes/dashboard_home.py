@@ -26,12 +26,7 @@ def dashboard_home_route():
   today_tasks = cursor.fetchall()
 
   # GET ALL TASKS CREATED LESS THAN 24 HOURS AGO
-  cursor.execute("SELECT * FROM tasks WHERE user_id = %s AND created_at >= NOW() - INTERVAL '24 hours'", (user_id,))
+  cursor.execute("SELECT * FROM tasks WHERE user_id = %s AND created_at >= NOW() - INTERVAL '24 hours' ORDER BY created_at DESC", (user_id,))
   recent_tasks = cursor.fetchall()
-
-  # print(recent_tasks)
-  # created_at = datetime(2023, 12, 26, 15, 00, 00, 00)
-
-  # time_ago_filter(created_at)
 
   return render_template('dashboard.html', user=dbUser, ongoing_tasks=ongoing_tasks, completed_tasks=completed_tasks, today_tasks=today_tasks, recent_tasks=recent_tasks)

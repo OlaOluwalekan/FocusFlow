@@ -2,7 +2,7 @@ from flask import render_template, request, redirect, flash
 from routes import db
 import hashlib
 from routes import User
-from flask_login import login_user
+from flask_login import login_user, current_user
 
 def login_route():
 
@@ -47,6 +47,9 @@ def login_route():
     # if next_url_post:
     #   return redirect(next_url_post)
     
+    return redirect('/dashboard')
+  
+  if current_user.is_authenticated:
     return redirect('/dashboard')
 
   return render_template("login.html", next_url=next_url)

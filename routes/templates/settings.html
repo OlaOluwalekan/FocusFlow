@@ -1,5 +1,92 @@
-{% extends "dashboard-layout.html" %} {% block dashboard %}
-<section class="dashboard">
-  <h1>Settings</h1>
+{% extends "dashboard-layout.html" %} {% block inner_style %}
+<link
+  rel="stylesheet"
+  href="{{ url_for('static', filename='settings.css') }}"
+/>
+{% endblock inner_style %} {% block dashboard %}
+<section class="settings">
+  <h2>Settings</h2>
+  <form action="/dashboard?tab=settings" class="personal-details" method="post">
+    <article class="first-name">
+      <label for="first_name">First Name</label>
+      <input
+        type="text"
+        name="first_name"
+        id="first_name"
+        value="{{ user.first_name or '' }}"
+        placeholder="First Name"
+      />
+    </article>
+
+    <article class="last-name">
+      <label for="first_name">Last Name</label>
+      <input
+        type="text"
+        name="last_name"
+        id="last_name"
+        value="{{ user.last_name or '' }}"
+        placeholder="Last Name"
+      />
+    </article>
+
+    <button type="submit" id="submit_personal_btn">Update Details</button>
+  </form>
+
+  <hr />
+
+  <div class="email-username">
+    <article>
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        value="{{ user.email }}"
+        readonly
+      />
+    </article>
+    <article>
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        value="{{ user.username }}"
+        readonly
+      />
+    </article>
+  </div>
+
+  <hr />
+
+  <form action="/password-change" class="password-change" method="post">
+    <h3>Change Password</h3>
+    <article class="password">
+      <label for="first_name">New Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      />
+    </article>
+
+    <article class="confirm">
+      <label for="confirm">Confirm Password</label>
+      <input
+        type="password"
+        name="confirm"
+        id="confirm"
+        placeholder="Confirm Password"
+      />
+    </article>
+
+    <button type="submit" id="change_password_btn">Change Password</button>
+  </form>
 </section>
-{% endblock dashboard %}
+{% endblock dashboard %} {% block inner_script %}
+<script
+  type="module"
+  src="{{ url_for('static', filename='js/settings.js') }}"
+></script>
+{% endblock inner_script %}

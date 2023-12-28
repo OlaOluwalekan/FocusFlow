@@ -1,1 +1,12 @@
-<h1>Page Not Found</h1>
+{% extends "layout.html" %} {% block main %}
+<div class="page-not-found">
+  <h1>404</h1>
+  <p>The page you are looking for does not exist or has being removed</p>
+  <article>
+    <a href="/" class="link link1">Go Home</a>
+    {% if current_user.is_authenticated %}
+    <a href="/dashboard" class="link link2">Your Dashboard</a>
+    {% endif %}
+  </article>
+</div>
+{% endblock main%}
