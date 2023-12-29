@@ -14,8 +14,9 @@ from routes.delete_sth import delete_task_route
 from routes.settings import password_change_route
 from flask_login import login_required
 from routes.filters import time_ago_filter
+import os
 
-app.debug = True
+# app.debug = True
 
 app.jinja_env.filters['time_ago'] = time_ago_filter
 
@@ -87,4 +88,5 @@ def method_not_allowed(e):
 
 
 if __name__ == "__main__":
-  app.run()
+  port = int(os.environ.get("PORT", 5000))
+  app.run(host="0.0.0.0", port=port)
