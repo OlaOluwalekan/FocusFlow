@@ -1,6 +1,6 @@
 # FocusFlow Task Management Web App
 
-FocusFlow is a task management web application built using Flask and PostgreSQL. It allows users to organize and manage their tasks efficiently, providing features such as task creation, category assignment, and user authentication.
+FocusFlow is a task management web application built using Flask and PostgreSQL. It allows users to organize and manage their tasks efficiently, providing features such as task creation, category assignment, and user authentication. A demo can be found [here](https://youtu.be/lt8WgahXXBU)
 
 ## Table of Contents
 
